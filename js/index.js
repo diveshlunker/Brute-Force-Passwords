@@ -20,6 +20,10 @@ function generatepass(plength,pstart,pnumber,pstartlength){
 
 
 function populateform(llength,lstart,lnumber){
+    
+    document.getElementById("fileButton").disabled = false;
+    
     startlength = lstart.length
     document.passgen.output.value = generatepass(llength,lstart,lnumber,startlength)
 }
+
