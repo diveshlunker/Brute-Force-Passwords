@@ -1,7 +1,38 @@
-var keylist = "abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*_ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-var tmp = ''
 
 function generatepass(plength,pstart,pnumber,pstartlength){
+    
+    if((document.getElementById('specialcheck').checked) && (document.getElementById('sensitivecheck').checked) && (document.getElementById('numbercheck').checked)){
+        var keylist = "abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*_ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    }
+    
+    else if((document.getElementById('specialcheck').checked) && (document.getElementById('sensitivecheck').checked)){
+        var keylist = "abcdefghijklmnopqrstuvwxyz!@#$%^&*_ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    }
+    else if((document.getElementById('sensitivecheck').checked) && (document.getElementById('numbercheck').checked)){
+        var keylist = "abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    }
+    else if(document.getElementById('numbercheck').checked){
+        var keylist = "abcdefghijklmnopqrstuvwxyz1234567890"
+    }
+    else if((document.getElementById('specialcheck').checked) && (document.getElementById('numbercheck').checked)){
+        var keylist = "abcdefghijklmnopqrstuvwxyz!@#$%^&*_ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    }
+    else if(document.getElementById('specialcheck').checked){
+        var keylist = "abcdefghijklmnopqrstuvwxyz!@#$%^&*_"
+    }
+    else if(document.getElementById('sensitivecheck').checked){
+        var keylist = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    }
+    else{
+        var keylist = "abcdefghijklmnopqrstuvwxyz"
+    }
+    
+//    return keylist
+    
+    
+    var tmp = ''
+
+    
     var l =[]
     for(j=0;j<pnumber;j++){
         tmp=pstart
@@ -21,9 +52,9 @@ function generatepass(plength,pstart,pnumber,pstartlength){
 
 function populateform(llength,lstart,lnumber){
     
-    document.getElementById("fileButton").disabled = false;
-    
     startlength = lstart.length
     document.passgen.output.value = generatepass(llength,lstart,lnumber,startlength)
+    
+    document.getElementById("fileButton").disabled = false
 }
 
