@@ -60,7 +60,7 @@ function populateform(llength,lstart,lnumber){
     
     document.getElementById("fileButton").disabled = false
     $("#fileButton").click(function(){
-        download("hello.txt",x);
+        download("bruteForceList.txt",x);
     });
     
 }
