@@ -41,11 +41,8 @@ function generatepass(plength,pstart,pnumber,pstartlength){
         }
         l.push(tmp)
     }
-    tmp=""
-    for(i=0;i<pnumber;i++){
-        tmp+=l[i]+'\n'
-    }
-    return tmp
+    return l
+    
     
 }
 
@@ -53,8 +50,31 @@ function generatepass(plength,pstart,pnumber,pstartlength){
 function populateform(llength,lstart,lnumber){
     
     startlength = lstart.length
-    document.passgen.output.value = generatepass(llength,lstart,lnumber,startlength)
+    x = generatepass(llength,lstart,lnumber,startlength)
+    var tmp=""
+    for(i=0;i<lnumber;i++){
+        tmp+=x[i]+'\n'
+    }
+    document.passgen.output.value = tmp
+    
     
     document.getElementById("fileButton").disabled = false
+    $("#fileButton").click(function(){
+        download("hello.txt",x);
+    });
+    
+}
+
+function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
 }
 
