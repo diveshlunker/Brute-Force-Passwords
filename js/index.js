@@ -32,6 +32,11 @@ function generatepass(plength,pstart,pnumber,pstartlength){
     
     var tmp = ''
 
+    if((plength-pstartlength)*(keylist.length)<pnumber){
+        console.log("Error")
+        l=["Total number of passwords which can be generated are less than the provided number of passwords to be generated. Please Try Again. Thank You:)"]
+        return l;
+    }
     
     var l =[]
     for(j=0;j<pnumber;j++){
@@ -39,7 +44,15 @@ function generatepass(plength,pstart,pnumber,pstartlength){
         for(i=0;i<plength-pstartlength;i++){
         tmp+=keylist.charAt(Math.floor(Math.random()*keylist.length))
         }
-        l.push(tmp)
+        if(l.includes(tmp)){
+            console.log(j);
+            j-=1
+            console.log(j);
+        }
+        else{
+            l.push(tmp);
+        }
+        
     }
     return l
     
@@ -51,10 +64,16 @@ function populateform(llength,lstart,lnumber){
     
     startlength = lstart.length
     x = generatepass(llength,lstart,lnumber,startlength)
-    var tmp=""
-    for(i=0;i<lnumber;i++){
-        tmp+=x[i]+'\n'
+    if(x.length>1){
+        var tmp=""
+        for(i=0;i<lnumber;i++){
+            tmp+=x[i]+'\n'
+        }
     }
+    else{
+        tmp = x[0];
+    }
+    
     document.passgen.output.value = tmp
     
     
