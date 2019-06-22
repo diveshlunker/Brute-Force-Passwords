@@ -32,7 +32,7 @@ function generatepass(plength,pstart,pnumber,pstartlength){
     
     var tmp = ''
 
-    if((plength-pstartlength)*(keylist.length)<pnumber){
+    if(Math.pow((keylist.length),(plength-pstartlength))<pnumber){
         console.log("Error")
         l=["Total number of passwords which can be generated are less than the provided number of passwords to be generated. Please Try Again. Thank You:)"]
         return l;
