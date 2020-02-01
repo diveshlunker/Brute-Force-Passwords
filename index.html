@@ -7,11 +7,11 @@
 	<link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 
-	<title>Brute Force Password Generation</title>
+	<title>link-force</title>
 
 
 	<link rel="stylesheet" href="css/index.css">
-	
+
 	<script src="js/index.js"></script>
 
 </head>
@@ -19,11 +19,8 @@
 <body>
 
 	<div class="container">
-      <a href="https://github.com/diveshlunker"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
-
        <div class="header row text-center">
-           Brute Force Password List Generations
-           
+           Brute Force Website Directories
        </div>
        <div class="form row">
          <form action="" name="passgen">
@@ -31,39 +28,39 @@
               <div class="col-lg-5">
               <textarea name="" class="form-control textarea" id="output" rows="18" cols="50"></textarea>
               <br>
-              
+
               <div class="text-center">
                   <input type="button" class="btn btn-success" id="fileButton" value="Download File">
               </div>
-              
-              
+
+
               <script>
                   document.getElementById("fileButton").disabled = true;
               </script>
           </div>
           </div>
-           
+
           <div class="rightform">
               <div class="col-lg-7">
               <div class="col-lg-6">
-                 
+
                  <div class="row">
                  <div class="col-lg-7">
                      <label for="lengthtext">Length</label>
                  </div>
                    <div class="col-lg-4">
-                        
+
                         <input class="form-control" name="length" id="lengthtext" type="number" value="6">
                   </div>
-                  
+
                </div><br>
                <div class="row">
                  <div class="col-lg-7">
                      <label for="startingtext">Starting Letters</label>
                  </div>
-                  
+
                    <div class="col-lg-4">
-                        
+
                         <input class="form-control" name="starting" id="startingtext" type="text" value="A">
                   </div>
                </div><br>
@@ -71,64 +68,40 @@
                   <div class="col-lg-7">
                       <label for="numbertext">Number of Passwords to be generated</label>
                   </div>
-                   
+
                     <div class="col-lg-4">
-                        
+
                         <input class="form-control" name="number" id="numbertext" type="number" value="100">
                     </div>
                </div><br>
-                  
+
               </div>
-              <div class="col-lg-6">
-                 <br><br>
-                  <div class="row">
-                     <div class="col-lg-12">
-                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="specialcheck">
-                          <label class="form-check-label" for="specialcheck">
-                            Include Special Characters
-                          </label><br>
-                          <input class="form-check-input" type="checkbox" value="" id="sensitivecheck">
-                          <label class="form-check-label" for="sensitivecheck">
-                            Include Case Sensitive Letters
-                          </label><br>
-                          <input class="form-check-input" type="checkbox" value="" id="numbercheck">
-                          <label class="form-check-label" for="numbercheck">
-                            Include Numbers
-                          </label><br>
-                          
-                    </div>
-                     </div>
-                      
-                  </div>
-              </div>
-               
-               
-               
+
+
                 <br>
-                
-                
+
+
                 <br>
            </div>
            <div class="text-center">
                     <input type="button" class="btn btn-success" value="Generate" onclick="populateform(this.form.length.value,this.form.starting.value,this.form.number.value)">
                 </div>
           </div>
-          
-           
-            
-            
-            
-            
+
+
+
+
+
+
         </form>
        </div>
-        
-	    
-	
-	
+
+
+
+
 
 	</div>
-	
+
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -139,4 +112,3 @@
 </body>
 
 </html>
- 

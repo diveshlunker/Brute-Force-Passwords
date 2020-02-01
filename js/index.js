@@ -1,35 +1,8 @@
 
 function generatepass(plength,pstart,pnumber,pstartlength){
-    
-    if((document.getElementById('specialcheck').checked) && (document.getElementById('sensitivecheck').checked) && (document.getElementById('numbercheck').checked)){
-        var keylist = "abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*_ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    }
-    
-    else if((document.getElementById('specialcheck').checked) && (document.getElementById('sensitivecheck').checked)){
-        var keylist = "abcdefghijklmnopqrstuvwxyz!@#$%^&*_ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    }
-    else if((document.getElementById('sensitivecheck').checked) && (document.getElementById('numbercheck').checked)){
-        var keylist = "abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    }
-    else if(document.getElementById('numbercheck').checked){
-        var keylist = "abcdefghijklmnopqrstuvwxyz1234567890"
-    }
-    else if((document.getElementById('specialcheck').checked) && (document.getElementById('numbercheck').checked)){
-        var keylist = "abcdefghijklmnopqrstuvwxyz!@#$%^&*_ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    }
-    else if(document.getElementById('specialcheck').checked){
-        var keylist = "abcdefghijklmnopqrstuvwxyz!@#$%^&*_"
-    }
-    else if(document.getElementById('sensitivecheck').checked){
-        var keylist = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    }
-    else{
-        var keylist = "abcdefghijklmnopqrstuvwxyz"
-    }
-    
-//    return keylist
-    
-    
+
+    var keylist = "abcdefghijklmnopqrstuvwxyz1234567890!-@#$%^&*_ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
     var tmp = ''
 
     if(Math.pow((keylist.length),(plength-pstartlength))<pnumber){
@@ -37,7 +10,7 @@ function generatepass(plength,pstart,pnumber,pstartlength){
         l=["Total number of passwords which can be generated are less than the provided number of passwords to be generated. Please Try Again. Thank You:)"]
         return l;
     }
-    
+
     var l =[]
     for(j=0;j<pnumber;j++){
         tmp=pstart
@@ -52,16 +25,17 @@ function generatepass(plength,pstart,pnumber,pstartlength){
         else{
             l.push(tmp);
         }
-        
+
     }
+    console.log(l)
     return l
-    
-    
+
+
 }
 
 
 function populateform(llength,lstart,lnumber){
-    
+
     startlength = lstart.length
     x = generatepass(llength,lstart,lnumber,startlength)
     if(x.length>1){
@@ -73,15 +47,15 @@ function populateform(llength,lstart,lnumber){
     else{
         tmp = x[0];
     }
-    
+
     document.passgen.output.value = tmp
-    
-    
+
+
     document.getElementById("fileButton").disabled = false
     $("#fileButton").click(function(){
-        download("bruteForceList.txt",x);
+        download("link-force.txt",x);
     });
-    
+
 }
 
 function download(filename, text) {
@@ -96,4 +70,3 @@ function download(filename, text) {
 
   document.body.removeChild(element);
 }
-
