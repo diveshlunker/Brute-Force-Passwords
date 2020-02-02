@@ -22,7 +22,7 @@ function generatepass(plength, pstart, pnumber){
     var keylist = "abcdefghijklmnopqrstuvwxyz1234567890!-@#$%^&*_ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     var tmp = ''
     var l = []
-    if(Math.pow((keylist.length),(plength - pstart.length))<pnumber){
+    if(Math.pow((keylist.length),(plength))<pnumber){
         console.log("ERROR")
         l=["Total number of passwords which can be generated are less than the provided number of passwords to be generated."]
         return l;
@@ -33,17 +33,24 @@ function generatepass(plength, pstart, pnumber){
     }
     for(j = 0; j < pnumber; j++){
         tmp = pstart
-        for(i = 0; i < plength - pstart.length; i++){
-        tmp += keylist.charAt(Math.floor(Math.random() * keylist.length))
+        for(i = 0; i < plength; i++){
+          tmp += keylist.charAt(Math.floor(Math.random() * keylist.length))
+          var failed = []
+          fetch(tmp, {
+            method: 'POST',
+            mode: 'no-cors',
+            credentials: 'include',
+            referrerPolicy: 'no-referrer'
+          }).then((response) => {
+            if (!response.ok) {
+              failed[i] = tmp
+            }
+          })
+          .catch((error) => {
+            failed[i] = tmp
+          });
         }
         // Check for connections, clones, and fails
-        var failed = []
-        fetch(tmp, {
-          mode: 'no-cors'
-        }).then(function err(response) {
-          console.log(response)
-          failed.push(tmp)
-        })
         if ((failed.includes(tmp))||(l.includes(tmp))){
             j-=1
         } else {
@@ -51,7 +58,6 @@ function generatepass(plength, pstart, pnumber){
         }
     }
     console.log(failed)
-    console.log(l)
     return l
 }
 
