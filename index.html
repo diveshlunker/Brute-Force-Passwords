@@ -1,23 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-
 	<title>link-force</title>
-
-
-	<link rel="stylesheet" href="css/index.css">
-
-	<script src="js/index.js"></script>
-
+	<link rel="stylesheet" href="index.css">
+	<script src="index.js" async></script>
 </head>
-
 <body>
-
 	<div class="container">
        <div class="header row text-center">
            Brute Force Website Directories
@@ -28,87 +20,53 @@
               <div class="col-lg-5">
               <textarea name="" class="form-control textarea" id="output" rows="18" cols="50"></textarea>
               <br>
-
               <div class="text-center">
                   <input type="button" class="btn btn-success" id="fileButton" value="Download File">
               </div>
-
-
               <script>
                   document.getElementById("fileButton").disabled = true;
               </script>
           </div>
           </div>
-
           <div class="rightform">
               <div class="col-lg-7">
               <div class="col-lg-6">
-
                  <div class="row">
                  <div class="col-lg-7">
                      <label for="lengthtext">Length</label>
                  </div>
                    <div class="col-lg-4">
-
                         <input class="form-control" name="length" id="lengthtext" type="number" value="6">
                   </div>
-
                </div><br>
                <div class="row">
                  <div class="col-lg-7">
-                     <label for="startingtext">Starting Letters</label>
+                     <label for="startingtext">Link</label>
                  </div>
-
                    <div class="col-lg-4">
-
                         <input class="form-control" name="starting" id="startingtext" type="text" value="A">
                   </div>
                </div><br>
                <div class="row">
                   <div class="col-lg-7">
-                      <label for="numbertext">Number of Passwords to be generated</label>
+                      <label for="numbertext">Attempts</label>
                   </div>
-
                     <div class="col-lg-4">
-
                         <input class="form-control" name="number" id="numbertext" type="number" value="100">
                     </div>
                </div><br>
-
               </div>
-
-
                 <br>
-
-
                 <br>
            </div>
            <div class="text-center">
                     <input type="button" class="btn btn-success" value="Generate" onclick="populateform(this.form.length.value,this.form.starting.value,this.form.number.value)">
                 </div>
           </div>
-
-
-
-
-
-
         </form>
        </div>
-
-
-
-
-
 	</div>
-
-
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-	<script>
-	</script>
-
 </body>
-
 </html>
