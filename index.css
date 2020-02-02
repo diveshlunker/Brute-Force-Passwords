@@ -1,0 +1,29 @@
+html,
+body {
+	overflow-x: hidden;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 300;
+	color: #fff;
+	background: #032429;
+}
+
+.header{
+    font-family: "Open Sans", sans-serif;
+    font-size: 30px;
+    padding-top: 40px;
+    padding-bottom: 50px;
+}
+
+.form{
+    padding-top: 10px;
+}
+
+.rightform{
+    padding-top: 155px;
+    padding-bottom: 155px;
+}
+
+.textarea{
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+}
