@@ -1,39 +1,14 @@
-function populateform(llength, lstart, lnumber){
-    x = generatepass(llength, lstart, lnumber)
-    if(x.length > 0){
-        var tmp = ""
-        for(i = 0; i < lnumber; i++){
-            tmp += x[i] + '\n'
-        }
-    }
-    else{
-        tmp = x[0];
-    }
-    document.passgen.output.value = tmp
-    document.getElementById("fileButton").disabled = false
-    $("#fileButton").click(function(){
-        download("link-force.txt",x);
-    });
-}
-
-
-
-function generatepass(plength, pstart, pnumber){
+function populateform(plength, pstart){
     var keylist = "abcdefghijklmnopqrstuvwxyz1234567890!-@#$%^&*_ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     var tmp = ''
     var l = []
-    if(Math.pow((keylist.length),(plength))<pnumber){
-        console.log("ERROR")
-        l=["Total number of passwords which can be generated are less than the provided number of passwords to be generated."]
-        return l;
-    }
     // Check for "/" at end of string
     if (pstart.charAt(pstart.length-1) !== "/") {
       pstart += "/"
     }
-    for(j = 0; j < pnumber; j++){
+    while (document.getElementById('stop').value === false){
         tmp = pstart
-        for(i = 0; i < plength; i++){
+        for(var i = 0; i < plength; i++){
           tmp += keylist.charAt(Math.floor(Math.random() * keylist.length))
           var failed = []
           fetch(tmp, {
@@ -48,7 +23,7 @@ function generatepass(plength, pstart, pnumber){
           })
           .catch((error) => {
             failed[i] = tmp
-          });
+          })
         }
         // Check for connections, clones, and fails
         if ((failed.includes(tmp))||(l.includes(tmp))){
@@ -56,9 +31,20 @@ function generatepass(plength, pstart, pnumber){
         } else {
             l.push(tmp);
         }
+        if(l.length > 0){
+            var tmp2 = ""
+            for(i = 0; i < l.length; i++){
+                tmp2 += l[i] + '\n'
+            }   
+        } else {
+            tmp2 = l[0];
+        }
+        document.passgen.output.value = tmp2
+        document.getElementById("fileButton").disabled = false
+        $("#fileButton").click(function(){
+        download("link-force.txt", tmp2)
+        })
     }
-    console.log(failed)
-    return l
 }
 
 
