@@ -4,7 +4,6 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
-	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 	<title>link-force</title>
 	<link rel="stylesheet" href="index.css">
 	<script src="index.js" async></script>
@@ -21,7 +20,7 @@
               <textarea name="" class="form-control textarea" id="output" rows="18" cols="50"></textarea>
               <br>
               <div class="text-center">
-                  <input type="button" class="btn btn-success" id="fileButton" value="Download File">
+                  <input type="button" class="btn btn-success" id="fileButton" value="Download File" onclick="download('link-force.txt', tmp2)">
               </div>
               <script>
                   document.getElementById("fileButton").disabled = true;
@@ -47,27 +46,19 @@
                         <input class="form-control" name="starting" id="startingtext" type="text" value="http://angusnicneven.com/">
                   </div>
                </div><br>
-               <div class="row">
-                  <div class="col-lg-7">
-                      <label for="numbertext">Attempts</label>
-                  </div>
-                    <div class="col-lg-4">
-                        <input class="form-control" name="number" id="numbertext" type="number" value="10">
-                    </div>
-               </div><br>
               </div>
                 <br>
                 <br>
            </div>
            <div class="text-center">
-                    <input type="button" class="btn btn-success" value="Generate" onclick="populateform(this.form.length.value,this.form.starting.value,this.form.number.value)">
-                    <input id="stop" type="button" class="btn btn-success" value=false onclick="document.getElementById('stop').value = true">
+                    <input type="button" class="btn btn-success" value="Generate" onclick="populateform(this.form.length.value,this.form.starting.value)">
+										<br>
+										<br>
+										<input id="stop" type="button" class="btn btn-success" value="Go" onclick="document.getElementById('stop').value = 'Go'">
 	   </div>
           </div>
         </form>
        </div>
 	</div>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
 </html>
